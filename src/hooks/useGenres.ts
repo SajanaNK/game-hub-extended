@@ -16,13 +16,14 @@ const useGenres = () => {
 
   return useQuery({
     queryKey: CACHE_KEY_GENRE,
-    queryFn:() => apiClient.getAll,
+    queryFn:() => apiClient.getAll({}),
     staleTime: 1000 * 60 * 60 * 24,
     keepPreviousData: true,
     initialData: {
       count: genres.length,
       results: genres,
-    }
+      next: null,
+    },
   });
 
  }

@@ -19,11 +19,7 @@ const usePlatforms = () => {
     queryFn: () => apiClient.getAll({}),
     staleTime: 1000 * 60 * 60 * 24,
     keepPreviousData: true,
-    initialData: {
-      count: platforms.length,
-      next: null,
-      results: platforms,
-    }
+    initialData: platforms
   });
 
 };

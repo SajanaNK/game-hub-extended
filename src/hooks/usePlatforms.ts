@@ -15,12 +15,13 @@ const usePlatforms = () => {
   const apiClient = new APIClient<FetchResponse<Platform>>("/platforms");
 
   return useQuery({
-      queryKey: CACHE_KEY_PLATFORM,
+      queryKey: [CACHE_KEY_PLATFORM],
       queryFn:() => apiClient.getAll({}),
       staleTime: 1000 * 60 * 60 * 24,
       keepPreviousData: true,
       initialData: {
         count: platforms.length,
+        
         results: platforms,
       }
     });

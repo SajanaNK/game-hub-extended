@@ -6,8 +6,8 @@ import GenreList from "./components/GenreList";
 import NavBar from "./components/NavBar";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
-import { Platform } from "./hooks/useGames";
 import { Genre } from "./hooks/useGenres";
+import { Platform } from "./hooks/usePlatforms";
 
 
 export interface GameQuery { 
@@ -15,6 +15,7 @@ export interface GameQuery {
   platform: Platform | null;
   sortOrder: string;
   searchText: string;
+  pageSize: number;
 }
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           </Flex>
         </Box>
         <GameGrid gameQuery={gameQuery} />
+        
       </GridItem>
     </Grid>
   );

@@ -2,9 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { Media } from "../entities/Media";
 import APIClient, { FetchResponse } from "../services/api-client";
 
-const useMedia = (id: number | string, mediaType: string) => {
+const useMedia = <T>(id: number | string, mediaType: string) => {
 
-    const apiClient = new APIClient<FetchResponse<Media>>("/games");
+    const apiClient = new APIClient<FetchResponse<T>>("/games");
 
     return useQuery({
         queryKey: ["media", id, mediaType],

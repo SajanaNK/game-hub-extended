@@ -1,3 +1,4 @@
+import { Media } from '../entities/Media';
 import useMedia from '../hooks/useMedia';
 
 interface Props {
@@ -5,7 +6,7 @@ interface Props {
 }
 
 const GameTrailer = ({ id }: Props) => {
-    const { data: movie, isLoading, error } = useMedia(id, 'movies');
+    const { data: movie, isLoading, error } = useMedia<Media>(id, 'movies');
     const first = movie?.results[0];
 
     if (!first) {

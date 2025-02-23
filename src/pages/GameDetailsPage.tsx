@@ -4,7 +4,9 @@ import CriticScore from '../components/CriticScore';
 import DefinitionItem from '../components/DefinitionItem';
 import ExpandableText from '../components/ExpandableText';
 import GameAttributes from '../components/GameAttributes';
+import GameTrailer from '../components/GameTrailer';
 import useGame from '../hooks/useGame';
+import useMedia from '../hooks/useMedia';
 
 
 const GameDetailsPage = () => {
@@ -12,6 +14,7 @@ const GameDetailsPage = () => {
   const { slug } = useParams();
 
   const { data: game, isLoading, error } = useGame(slug!);
+
 
   if (isLoading) {
     return <Spinner />
@@ -22,12 +25,15 @@ const GameDetailsPage = () => {
   }
 
   return (
-    <Box padding={5}>
+    <>
       <Heading>{game.name}</Heading>
       <ExpandableText text={game.description_raw} limit={200} />
 
      <GameAttributes game={game} />
-    </Box>
+
+      <GameTrailer id={game.id} />
+
+    </>
   )
 }
 

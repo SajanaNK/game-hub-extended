@@ -37,6 +37,12 @@ class APIClient<T>{
 
     ).then((res) => res.data);
   }
+
+  getMedia = (id: number | string, mediaType : string) =>{
+    return axiosInstance.get<T>(
+      this.endPoint + '/' + id + '/' + mediaType
+    ).then((res) => res.data);
+  }
   
 }
 

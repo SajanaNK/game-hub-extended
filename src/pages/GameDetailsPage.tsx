@@ -26,17 +26,23 @@ const GameDetailsPage = () => {
   }
 
   return (
-    <>
-      <Heading>{game.name}</Heading>
-      <ExpandableText text={game.description_raw} limit={200} />
+    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+      <Box>
+        <Heading>{game.name}</Heading>
+        <ExpandableText text={game.description_raw} limit={200} />
 
-      <GameAttributes game={game} />
+        <GameAttributes game={game} />
 
-      <GameTrailer id={game.id} />
+      </Box>
+      
+      <Box>
+        <GameTrailer id={game.id} />
 
-      <GameScreenShots id={game.id} />
+        <GameScreenShots id={game.id} />
+      </Box>
 
-    </>
+
+    </SimpleGrid>
   )
 }
 

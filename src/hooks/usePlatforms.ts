@@ -4,12 +4,7 @@ import platforms from "../data/platforms";
 import { FetchResponse } from "../services/api-client";
 import APIClient from "../services/api-client";
 import ms from "ms";
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
+import { Platform } from "../entities/Platform";
 
 const usePlatforms = () => {
 

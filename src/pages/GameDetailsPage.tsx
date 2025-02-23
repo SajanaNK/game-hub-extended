@@ -1,14 +1,17 @@
-import { Box, Heading, Spinner, Text } from '@chakra-ui/react';
+import { Box, Heading, SimpleGrid, Spinner, Text } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
+import CriticScore from '../components/CriticScore';
+import DefinitionItem from '../components/DefinitionItem';
 import ExpandableText from '../components/ExpandableText';
+import GameAttributes from '../components/GameAttributes';
 import useGame from '../hooks/useGame';
 
 
 const GameDetailsPage = () => {
 
-  const {slug} =  useParams();
+  const { slug } = useParams();
 
-  const {data: game, isLoading, error} = useGame(slug!);
+  const { data: game, isLoading, error } = useGame(slug!);
 
   if (isLoading) {
     return <Spinner />
@@ -22,9 +25,8 @@ const GameDetailsPage = () => {
     <Box padding={5}>
       <Heading>{game.name}</Heading>
       <ExpandableText text={game.description_raw} limit={200} />
-      {/* <Text>
-        {game.description_raw}
-      </Text> */}
+
+     <GameAttributes game={game} />
     </Box>
   )
 }

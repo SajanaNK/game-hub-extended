@@ -13,7 +13,7 @@ export interface Platform {
 
 const usePlatforms = () => {
 
-  const apiClient = new APIClient<FetchResponse<Platform>>("/platforms");
+  const apiClient = new APIClient<FetchResponse<Platform>>("/platforms/lists/parents");
 
   return useQuery({
     queryKey: CACHE_KEY_PLATFORM,
